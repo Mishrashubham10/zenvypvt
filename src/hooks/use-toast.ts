@@ -1,11 +1,8 @@
 import * as React from 'react';
 
-// Replace with the correct import or define ToastProps locally if not exported.
-// Example: If ToastProps is not exported, define it here:
 export interface ToastProps {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  // Add other props as needed
 }
 
 const TOAST_LIMIT = 1;

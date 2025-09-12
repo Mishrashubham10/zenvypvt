@@ -19,6 +19,7 @@ import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import { useParams } from 'next/navigation';
 import BackLink from '@/components/BackLink';
+import Image from 'next/image';
 
 export default function ProductDetail() {
   const params = useParams();
@@ -67,10 +68,11 @@ export default function ProductDetail() {
         {/* ======== PRODUCT IMAGE ======== */}
         <div className="space-y-4">
           <div className="aspect-square overflow-hidden rounded-lg bg-muted">
-            <img
+            <Image
               src={product.image}
               alt={product.name}
               className="w-full h-full object-cover"
+              loading='lazy'
             />
           </div>
         </div>

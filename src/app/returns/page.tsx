@@ -102,7 +102,7 @@ export default function Returns() {
                       <h3 className="font-medium mb-1">Print Label</h3>
                       <p className="text-muted-foreground">
                         Download and print the prepaid return shipping label
-                        we'll email you.
+                        we&apos;ll email you.
                       </p>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ export default function Returns() {
                   <div>
                     <h3 className="font-medium mb-2">Defective Items</h3>
                     <p className="text-muted-foreground">
-                      If you receive a defective item, we'll send a replacement
+                      If you receive a defective item, we&apos;ll send a replacement
                       immediately at no charge. Contact customer service for
                       expedited processing.
                     </p>
@@ -158,7 +158,7 @@ export default function Returns() {
                   <div>
                     <h3 className="font-medium mb-2">Out of Stock Items</h3>
                     <p className="text-muted-foreground">
-                      If your desired exchange item is out of stock, we'll issue
+                      If your desired exchange item is out of stock, we&apos;ll issue
                       a full refund and notify you when the item is back in
                       stock.
                     </p>
