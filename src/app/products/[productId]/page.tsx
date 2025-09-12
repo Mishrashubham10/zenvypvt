@@ -72,7 +72,7 @@ export default function ProductDetail() {
               src={product.image}
               alt={product.name}
               className="w-full h-full object-cover"
-              loading='lazy'
+              loading="lazy"
             />
           </div>
         </div>
@@ -107,7 +107,11 @@ export default function ProductDetail() {
             </div>
 
             <p className="text-3xl font-bold text-primary mb-6">
-              ${product.price.toFixed(2)}
+              {Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 2,
+              }).format(product.price)}
             </p>
           </div>
 
