@@ -10,8 +10,8 @@ export default function AboutUs() {
           About Zenvypvt
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          We're passionate about bringing you the best products at unbeatable
-          prices. Since our founding, we've been committed to exceptional
+          We&apos;re passionate about bringing you the best products at unbeatable
+          prices. Since our founding, we&apos;ve been committed to exceptional
           quality and customer service.
         </p>
       </section>
@@ -69,7 +69,7 @@ export default function AboutUs() {
             </div>
             <h3 className="font-semibold mb-2">Customer Care</h3>
             <p className="text-sm text-muted-foreground">
-              Your satisfaction is our top priority. We're here to help every
+              Your satisfaction is our top priority. We&apos;re here to help every
               step of the way.
             </p>
           </div>

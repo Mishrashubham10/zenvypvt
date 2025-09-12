@@ -103,9 +103,9 @@ export default function Shipping() {
                   <div>
                     <h3 className="font-medium mb-2">Order Tracking</h3>
                     <p className="text-muted-foreground">
-                      Once your order ships, you'll receive a tracking number
+                      Once your order ships, you&apos;ll receive a tracking number
                       via email. You can track your package on our website or
-                      the carrier's website.
+                      the carrier&apos;s website.
                     </p>
                   </div>
                   <div>

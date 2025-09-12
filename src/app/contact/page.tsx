@@ -46,7 +46,7 @@ export default function ContactUs() {
           Contact Us
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          We'd love to hear from you. Send us a message and we'll respond as
+          We&apos;d love to hear from you. Send us a message and we&apos;ll respond as
           soon as possible.
         </p>
       </section>
@@ -197,7 +197,7 @@ export default function ContactUs() {
                 </p>
               </div>
               <div>
-                <h4 className="font-medium mb-1">What's your return policy?</h4>
+                <h4 className="font-medium mb-1">What&apos;s your return policy?</h4>
                 <p className="text-sm text-muted-foreground">
                   We offer 30-day returns for unused items in original
                   condition.

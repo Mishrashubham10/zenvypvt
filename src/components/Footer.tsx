@@ -10,7 +10,7 @@ export function Footer() {
             <h3 className="font-bold text-lg text-primary">ShopHub</h3>
             <p className="text-muted-foreground text-sm">
               Your one-stop destination for quality products at great prices.
-              We're committed to providing exceptional shopping experiences.
+              We&apos;re committed to providing exceptional shopping experiences.
             </p>
             <div className="flex space-x-4">
               <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />

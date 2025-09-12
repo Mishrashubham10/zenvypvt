@@ -134,7 +134,7 @@ export default function Login() {
 
         <CardFooter>
           <div className="text-center text-sm w-full">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link
               href="/register"
               className="text-primary hover:underline font-medium"
