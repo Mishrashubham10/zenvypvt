@@ -67,12 +67,13 @@ export default function ProductDetail() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
         {/* ======== PRODUCT IMAGE ======== */}
         <div className="space-y-4">
-          <div className="aspect-square overflow-hidden rounded-lg bg-muted">
+          <div className="relative w-full h-full aspect-square overflow-hidden rounded-lg bg-muted">
             <Image
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="object-cover"
               loading="lazy"
+              fill
             />
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Truck, Clock, MapPin, Package } from 'lucide-react';
+import { IndianRupee } from 'lucide-react';
 
 export default function Shipping() {
   return (
@@ -19,8 +20,8 @@ export default function Shipping() {
             <div className="text-center p-6 bg-card rounded-lg border">
               <Truck className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Free Shipping</h3>
-              <p className="text-sm text-muted-foreground">
-                On orders over $50
+              <p className="text-sm text-muted-foreground flex gap-1">
+                On orders over <IndianRupee className='w-4 h-4' />50000
               </p>
             </div>
             <div className="text-center p-6 bg-card rounded-lg border">
@@ -56,7 +57,7 @@ export default function Shipping() {
                         5-7 business days
                       </p>
                     </div>
-                    <span className="font-semibold">$5.99</span>
+                    <span className="font-semibold flex gap-1 items-center"><IndianRupee className='w-4 h-4' />599</span>
                   </div>
                   <div className="flex justify-between items-center border-b pb-4">
                     <div>
@@ -65,7 +66,7 @@ export default function Shipping() {
                         2-3 business days
                       </p>
                     </div>
-                    <span className="font-semibold">$12.99</span>
+                    <span className="font-semibold flex gap-1 items-center"><IndianRupee className='w-4 h-4' />1299</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <div>
@@ -74,7 +75,7 @@ export default function Shipping() {
                         1 business day
                       </p>
                     </div>
-                    <span className="font-semibold">$24.99</span>
+                    <span className="font-semibold flex gap-1 items-center"><IndianRupee className='w-4 h-4' />2499</span>
                   </div>
                 </div>
               </div>

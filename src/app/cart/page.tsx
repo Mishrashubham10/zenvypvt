@@ -8,6 +8,11 @@ import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
 import BackLink from '@/components/BackLink';
+import Image from 'next/image';
+import { IndianRupee } from 'lucide-react';
+
+// FOR EMAIL AND WHATSAPP
+import emailjs from '@emailjs/browser';
 
 export default function CartPage() {
   const { state, dispatch } = useCart();
@@ -34,6 +39,64 @@ export default function CartPage() {
       title: 'Cart cleared',
       description: 'All items have been removed from your cart.',
     });
+  };
+
+  // SEND ORDER EMAIL
+  const sendOrderEmail = () => {
+    emailjs
+      .send(
+        'service_cxgjg3j',
+        'template_zwmoijn',
+        {
+          items: state.items.map((i) => `${i.quantity} x ${i.name}`).join(', '),
+          total: state.total,
+        },
+        'eyr5k3eHevA14Ajnw'
+      )
+      .then(() => {
+        alert('Order details sent to your email!');
+      })
+      .catch((err) => {
+        console.error('EmailJS Error:', err);
+      });
+  };
+
+  const sendWhatsApp = () => {
+    const phoneNumber = '91XXXXXXXXXX'; // your WhatsApp
+    const message = encodeURIComponent(
+      `📦 New Order:\n${state.items
+        .map((i) => `${i.quantity} x ${i.name}`)
+        .join('\n')}\n💰 Total: $${state.total}`
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
+
+  const handleCheckout = () => {
+    const formattedItems = state.items
+      .map(
+        (item) =>
+          `${item.name} (x${item.quantity}) - ₹${item.price * item.quantity}`
+      )
+      .join('\n');
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, // SERVICE ID
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, // TEMPLATE ID
+        {
+          user_name: 'Shubham Mishra', // you can collect this from a form
+          user_email: 'shubham@example.com', // or let user enter it
+          cart_items: formattedItems,
+          cart_total: state.total.toString(),
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID // PUBLIC KEY
+      )
+      .then((res) => {
+        console.log('✅ Email sent!', res.status, res.text);
+      })
+      .catch((err) => {
+        console.error('Email error:', err);
+      });
   };
 
   if (state.items.length === 0) {
@@ -82,11 +145,14 @@ export default function CartPage() {
               <Card key={item.id}>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-20 h-20 object-cover rounded-md"
-                    />
+                    <div className="relative h-20 w-20">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        className="object-cover rounded-md"
+                        fill
+                      />
+                    </div>
 
                     <div className="flex-1">
                       <Link
@@ -98,7 +164,13 @@ export default function CartPage() {
                       <p className="text-sm text-muted-foreground mt-1">
                         {item.category}
                       </p>
-                      <p className="font-bold mt-2">${item.price.toFixed(2)}</p>
+                      <p className="font-bold mt-2">
+                        {Intl.NumberFormat('en-IN', {
+                          style: 'currency',
+                          currency: 'INR',
+                          maximumFractionDigits: 2,
+                        }).format(item.price)}
+                      </p>
                     </div>
 
                     <div className="flex items-center gap-3">
@@ -143,7 +215,7 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* Order Summary */}
+        {/* ========== ORDER SUMMARY ============= */}
         <div className="lg:col-span-1">
           <Card className="sticky top-4">
             <CardHeader>
@@ -156,7 +228,10 @@ export default function CartPage() {
                     <span>
                       {item.name} × {item.quantity}
                     </span>
-                    <span>${(item.price * item.quantity).toFixed(2)}</span>
+                    <span className="flex gap-1 items-center">
+                      <IndianRupee className="w-4 h-4" />
+                      {(item.price * item.quantity).toFixed(2)}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -166,7 +241,10 @@ export default function CartPage() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>${state.total.toFixed(2)}</span>
+                  <span className="flex gap-1 items-center">
+                    <IndianRupee className="w-4 h-4" />
+                    {state.total.toFixed(2)}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Shipping</span>
@@ -174,7 +252,10 @@ export default function CartPage() {
                 </div>
                 <div className="flex justify-between">
                   <span>Tax</span>
-                  <span>${(state.total * 0.08).toFixed(2)}</span>
+                  <span className="flex gap-1 items-center">
+                    <IndianRupee className="w-4 h-4" />
+                    {(state.total * 0.08).toFixed(2)}
+                  </span>
                 </div>
               </div>
 
@@ -182,10 +263,13 @@ export default function CartPage() {
 
               <div className="flex justify-between text-lg font-bold">
                 <span>Total</span>
-                <span>${(state.total * 1.08).toFixed(2)}</span>
+                <span className="flex gap-1 items-center">
+                  <IndianRupee className="w-4 h-4" />
+                  {(state.total * 1.08).toFixed(2)}
+                </span>
               </div>
 
-              <Button className="w-full" size="lg">
+              <Button className="w-full" size="lg" onClick={handleCheckout}>
                 Proceed to Checkout
               </Button>
 

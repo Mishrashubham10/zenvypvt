@@ -17,7 +17,7 @@ export default function ContactUs() {
   });
   const { toast } = useToast();
 
-  //   HANDLE SUBMIT
+  // HANDLE SUBMIT
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
@@ -46,8 +46,8 @@ export default function ContactUs() {
           Contact Us
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          We&apos;d love to hear from you. Send us a message and we&apos;ll respond as
-          soon as possible.
+          We&apos;d love to hear from you. Send us a message and we&apos;ll
+          respond as soon as possible.
         </p>
       </section>
 
@@ -55,7 +55,11 @@ export default function ContactUs() {
         {/* ============= CONTACT FORM =========== */}
         <div>
           <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            className="space-y-4"
+            action="https://formsubmit.co/zenvyecommerce43@gmail.com"
+            method="POST"
+          >
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="name">Full Name</Label>
@@ -127,7 +131,7 @@ export default function ContactUs() {
               <div>
                 <h3 className="font-semibold mb-2">Our Address</h3>
                 <p className="text-muted-foreground">
-                  Office no 132, Hari Om Plaza
+                  Office no 104, Hari Om Plaza
                   <br />
                   Near Western Express Highway,
                   <br />
@@ -197,7 +201,9 @@ export default function ContactUs() {
                 </p>
               </div>
               <div>
-                <h4 className="font-medium mb-1">What&apos;s your return policy?</h4>
+                <h4 className="font-medium mb-1">
+                  What&apos;s your return policy?
+                </h4>
                 <p className="text-sm text-muted-foreground">
                   We offer 30-day returns for unused items in original
                   condition.
