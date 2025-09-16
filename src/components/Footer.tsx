@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="font-bold text-lg text-primary">ShopHub</h3>
+            <h3 className="font-bold text-lg text-primary">Zenvypvt</h3>
             <p className="text-muted-foreground text-sm">
               Your one-stop destination for quality products at great prices.
               We&apos;re committed to providing exceptional shopping experiences.
@@ -99,7 +99,7 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 ShopHub. All rights reserved.</p>
+          <p>&copy; 2024 Zenvypvt. All rights reserved.</p>
         </div>
       </div>
     </footer>
