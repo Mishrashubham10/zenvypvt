@@ -105,10 +105,10 @@ export default function AboutUs() {
             <div className="bg-muted/30 rounded-full w-32 h-32 mx-auto mb-4 flex items-center justify-center">
               <Users className="h-16 w-16 text-muted-foreground" />
             </div>
-            <h3 className="font-semibold mb-1">Sarah Johnson</h3>
+            <h3 className="font-semibold mb-1">Abhishek Tiwari</h3>
             <p className="text-sm text-primary mb-2">Founder & CEO</p>
             <p className="text-sm text-muted-foreground">
-              Leading ShopHub with vision and passion for customer excellence.
+              Leading Zenvypvt with vision and passion for customer excellence.
             </p>
           </div>
 
@@ -116,7 +116,7 @@ export default function AboutUs() {
             <div className="bg-muted/30 rounded-full w-32 h-32 mx-auto mb-4 flex items-center justify-center">
               <Users className="h-16 w-16 text-muted-foreground" />
             </div>
-            <h3 className="font-semibold mb-1">Mike Chen</h3>
+            <h3 className="font-semibold mb-1">Pramod Pandey</h3>
             <p className="text-sm text-primary mb-2">Head of Operations</p>
             <p className="text-sm text-muted-foreground">
               Ensuring smooth operations and timely delivery of your orders.
@@ -127,7 +127,7 @@ export default function AboutUs() {
             <div className="bg-muted/30 rounded-full w-32 h-32 mx-auto mb-4 flex items-center justify-center">
               <Users className="h-16 w-16 text-muted-foreground" />
             </div>
-            <h3 className="font-semibold mb-1">Emily Rodriguez</h3>
+            <h3 className="font-semibold mb-1">Manish Jaiswal</h3>
             <p className="text-sm text-primary mb-2">Customer Success</p>
             <p className="text-sm text-muted-foreground">
               Dedicated to providing exceptional support and service.
