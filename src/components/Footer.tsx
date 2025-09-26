@@ -1,5 +1,25 @@
-import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
+'use client';
+
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Globe,
+} from 'lucide-react';
 import Link from 'next/link';
+
+const socials = [
+  { name: 'Facebook', icon: Facebook, url: 'https://facebook.com/61581161894392' },
+  { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/YourPage' },
+  {
+    name: 'LinkedIn',
+    icon: Linkedin,
+    url: 'https://linkedin.com/in/zenvy-e-commerce-2a5145387',
+  },
+  { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/ShopZenvy53946' },
+  { name: 'Pinterest', icon: Globe, url: 'https://pinterest.com/zenvyecommerce' },
+];
 
 export function Footer() {
   return (
@@ -10,13 +30,23 @@ export function Footer() {
             <h3 className="font-bold text-lg text-primary">Zenvypvt</h3>
             <p className="text-muted-foreground text-sm">
               Your one-stop destination for quality products at great prices.
-              We&apos;re committed to providing exceptional shopping experiences.
+              We&apos;re committed to providing exceptional shopping
+              experiences.
             </p>
+            {/* =========== SOCIAL ICONS ============== */}
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Mail className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              {socials.map(({ name, icon: Icon, url }) => (
+                <a
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={name}
+                  className="p-2 rounded-full bg-gray-600 hover:bg-gray-600 transition"
+                >
+                  <Icon className="size-5 text-white hover:text-yellow-300" />
+                </a>
+              ))}
             </div>
           </div>
 
