@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const socials = [
   { name: 'Facebook', icon: Facebook, url: 'https://facebook.com/61581161894392' },
-  { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/YourPage' },
+  { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/szenvy' },
   {
     name: 'LinkedIn',
     icon: Linkedin,

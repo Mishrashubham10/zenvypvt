@@ -17,16 +17,16 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import BackLink from '@/components/BackLink';
 import Image from 'next/image';
 
 export default function ProductDetail() {
   const params = useParams();
   const productId = params?.productId as string;
-  console.log('Actual productId is here!!!', productId);
   const { dispatch } = useCart();
   const { toast } = useToast();
+  const router = useRouter();
 
   const product = products.find((p) => p.id === productId);
 
@@ -52,6 +52,7 @@ export default function ProductDetail() {
         description: `${product.name} has been added to your cart.`,
       });
     }
+    router.push("/cart");
   };
 
   const relatedProducts = products

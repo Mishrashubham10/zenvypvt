@@ -13,10 +13,13 @@ import { IndianRupee } from 'lucide-react';
 
 // FOR EMAIL AND WHATSAPP
 import emailjs from '@emailjs/browser';
+import CheckoutPopup from '@/components/CheckoutPopup';
+import { useState } from 'react';
 
 export default function CartPage() {
   const { state, dispatch } = useCart();
   const { toast } = useToast();
+  const [open, setOpen] = useState(false);
 
   // UPDATE QUANTITY
   const updateQuantity = (productId: string, quantity: number) => {
@@ -72,6 +75,7 @@ export default function CartPage() {
   };
 
   const handleCheckout = () => {
+    setOpen(true);
     const formattedItems = state.items
       .map(
         (item) =>
@@ -272,6 +276,13 @@ export default function CartPage() {
               <Button className="w-full" size="lg" onClick={handleCheckout}>
                 Proceed to Checkout
               </Button>
+              <CheckoutPopup
+                open={open}
+                setOpen={setOpen}
+                title="Order Successful 🎉"
+                description="Thank you for shopping with us. Your order has been placed and
+              will be delivered soon!"
+              />
 
               <p className="text-xs text-muted-foreground text-center">
                 Secure checkout with SSL encryption
