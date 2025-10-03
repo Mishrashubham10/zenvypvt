@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useCart } from '@/contexts/CartContext';
 import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
 import BackLink from '@/components/BackLink';
 import Image from 'next/image';
@@ -15,10 +14,10 @@ import { IndianRupee } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import CheckoutPopup from '@/components/CheckoutPopup';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function CartPage() {
   const { state, dispatch } = useCart();
-  const { toast } = useToast();
   const [open, setOpen] = useState(false);
 
   // UPDATE QUANTITY
@@ -29,8 +28,7 @@ export default function CartPage() {
   // REMOVE ITEM FROM CONTEXT
   const removeItem = (productId: string) => {
     dispatch({ type: 'REMOVE_FROM_CART', productId });
-    toast({
-      title: 'Item removed',
+    toast('Item removed', {
       description: 'Item has been removed from your cart.',
     });
   };
@@ -38,8 +36,7 @@ export default function CartPage() {
   // CLER CART
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
-    toast({
-      title: 'Cart cleared',
+    toast("Cart cleared", {
       description: 'All items have been removed from your cart.',
     });
   };

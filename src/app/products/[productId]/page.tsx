@@ -6,7 +6,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { products } from '@/data/products';
 import { useCart } from '@/contexts/CartContext';
-import { useToast } from '@/hooks/use-toast';
 import {
   Star,
   ShoppingCart,
@@ -20,13 +19,16 @@ import ProductCard from '@/components/ProductCard';
 import { useParams, useRouter } from 'next/navigation';
 import BackLink from '@/components/BackLink';
 import Image from 'next/image';
+import SizeComponent from '@/components/SizeComponent';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function ProductDetail() {
   const params = useParams();
   const productId = params?.productId as string;
   const { dispatch } = useCart();
-  const { toast } = useToast();
   const router = useRouter();
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
   const product = products.find((p) => p.id === productId);
 
@@ -45,19 +47,28 @@ export default function ProductDetail() {
   }
 
   const handleAddToCart = () => {
+    // if (!selectedSize) {
+    //   toast.warning('Please select a size before adding to cart');
+    //   return;
+    // }
+
     if (product.inStock) {
       dispatch({ type: 'ADD_TO_CART', product });
-      toast({
-        title: 'Added to cart',
+      toast.success('Added to cart', {
         description: `${product.name} has been added to your cart.`,
       });
     }
-    router.push("/cart");
+    router.push('/cart');
   };
 
   const relatedProducts = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
+
+  const handleSelect = (size: string) => {
+    console.log('Selected size', size);
+    setSelectedSize(size);
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -119,11 +130,46 @@ export default function ProductDetail() {
 
           <Separator />
 
-          <div>
+          {/* ========= SIZES BUTTON ============ */}
+          <SizeComponent sizes={product.size} onSizeSelect={handleSelect} />
+
+          <Separator />
+
+          {/* ========= DESCRIPTION ========== */}
+          <div className="text-muted-foreground space-y-2">
             <h3 className="font-semibold mb-2">Description</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {product.description}
-            </p>
+            <p className="text-sm">{product?.description}</p>
+            <ul className="list-disc pl-5 text-sm space-y-1">
+              <li>
+                <strong>Material:</strong> {product.productDetails?.material}
+              </li>
+              <li>
+                <strong>Fit:</strong> {product.productDetails?.fit}
+              </li>
+              <li>
+                <strong>Care:</strong>
+                <ul className="list-disc pl-5 mt-1">
+                  {product.productDetails.care?.map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
+                </ul>
+              </li>
+              <li className="mt-1">
+                <strong>Durability:</strong>{' '}
+                {product.productDetails?.durability}
+              </li>
+            </ul>
+          </div>
+
+          {/* =========== ABOUT THIS ITEM ============= */}
+          <div className="text-muted-foreground space-y-2">
+            <h3 className="font-semibold mb-2">About this item</h3>
+            <p className="text-sm">{product?.description}</p>
+            <ul className="list-disc pl-5 text-sm space-y-2">
+              {product.about?.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
           </div>
 
           <div className="space-y-4">

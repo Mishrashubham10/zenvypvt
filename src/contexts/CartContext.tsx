@@ -17,6 +17,14 @@ export interface Product {
   category: string;
   inStock: boolean;
   rating: number;
+  productDetails: {
+    material: string;
+    fit: string;
+    care: string[];
+    durability: string;
+  };
+  size: string[];
+  about: string[];
 }
 
 export interface CartItem extends Product {

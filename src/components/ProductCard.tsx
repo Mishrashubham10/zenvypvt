@@ -4,28 +4,17 @@ import { Star, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
-import { Product, useCart } from '@/contexts/CartContext';
+import { Product } from '@/contexts/CartContext';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { dispatch } = useCart();
-  const { toast } = useToast();
-
-  const handleAddToCart = () => {
-    if (product.inStock) {
-      dispatch({ type: 'ADD_TO_CART', product });
-      toast({
-        title: 'Added to cart',
-        description: `${product.name} has been added to your cart.`,
-      });
-    }
-  };
+  const router = useRouter();
 
   return (
     <Card className="group hover:shadow-[var(--card-shadow-hover)] transition-all duration-300 border-0 shadow-[var(--card-shadow)]">
@@ -89,7 +78,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       <CardFooter className="p-6 pt-0">
         <Button
-          onClick={handleAddToCart}
+          onClick={()=>router.push(`/products/${product.id}`)}
           disabled={!product.inStock}
           className="w-full"
           variant={product.inStock ? 'default' : 'secondary'}
