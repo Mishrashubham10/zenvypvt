@@ -292,7 +292,7 @@ export const products: Product[] = [
     id: '12',
     name: 'Casual Shorts',
     price: 399,
-    image: 'https://images.pexels.com/photos/3771072/pexels-photo-3771072.jpeg',
+    image: 'https://images.pexels.com/photos/8126311/pexels-photo-8126311.jpeg',
     description: 'Lightweight shorts perfect for summer or workouts.',
     productDetails: {
       material: '100% Cotton',
@@ -389,7 +389,7 @@ export const products: Product[] = [
     id: '16',
     name: 'Chinos Pants',
     price: 699,
-    image: 'https://images.pexels.com/photos/2672979/pexels-photo-2672979.jpeg',
+    image: 'https://images.pexels.com/photos/10074957/pexels-photo-10074957.jpeg',
     description: 'Smart casual chinos for office and leisure.',
     productDetails: {
       material: '98% Cotton, 2% Elastane',
@@ -560,7 +560,7 @@ export const products: Product[] = [
     id: '23',
     name: 'Checkered Shirt',
     price: 4999,
-    image: 'https://images.pexels.com/photos/428321/pexels-photo-428321.jpeg',
+    image: 'https://images.pexels.com/photos/34124133/pexels-photo-34124133.jpeg',
     description: 'Classic checkered shirt suitable for casual and office wear.',
     productDetails: {
       material: '100% Cotton',
