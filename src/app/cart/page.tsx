@@ -142,14 +142,14 @@ export default function CartPage() {
           </div>
 
           <div className="space-y-4">
-            {state.items.map((item) => (
-              <Card key={item.id}>
+            {state.items.map((product) => (
+              <Card key={product.id}>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="relative h-20 w-20">
                       <Image
-                        src={item.image}
-                        alt={item.name}
+                        src={product.image}
+                        alt={product.name}
                         className="object-cover rounded-md"
                         fill
                       />
@@ -157,20 +157,20 @@ export default function CartPage() {
 
                     <div className="flex-1">
                       <Link
-                        href={`/product/${item.id}`}
+                        href={`/products/${product.id}`}
                         className="hover:text-primary transition-colors"
                       >
-                        <h3 className="font-semibold">{item.name}</h3>
+                        <h3 className="font-semibold">{product.name}</h3>
                       </Link>
                       <p className="text-sm text-muted-foreground mt-1">
-                        {item.category}
+                        {product.category}
                       </p>
                       <p className="font-bold mt-2">
                         {Intl.NumberFormat('en-IN', {
                           style: 'currency',
                           currency: 'INR',
                           maximumFractionDigits: 2,
-                        }).format(item.price)}
+                        }).format(product.price)}
                       </p>
                     </div>
 
@@ -180,20 +180,20 @@ export default function CartPage() {
                           variant="ghost"
                           size="sm"
                           onClick={() =>
-                            updateQuantity(item.id, item.quantity - 1)
+                            updateQuantity(product.id, product.quantity - 1)
                           }
-                          disabled={item.quantity <= 1}
+                          disabled={product.quantity <= 1}
                         >
                           <Minus className="h-4 w-4" />
                         </Button>
                         <span className="px-3 py-2 min-w-[3rem] text-center">
-                          {item.quantity}
+                          {product.quantity}
                         </span>
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={() =>
-                            updateQuantity(item.id, item.quantity + 1)
+                            updateQuantity(product.id, product.quantity + 1)
                           }
                         >
                           <Plus className="h-4 w-4" />
@@ -203,7 +203,7 @@ export default function CartPage() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => removeItem(item.id)}
+                        onClick={() => removeItem(product.id)}
                         className="text-destructive hover:text-destructive"
                       >
                         <Trash2 className="h-4 w-4" />
@@ -227,7 +227,7 @@ export default function CartPage() {
                 {state.items.map((item) => (
                   <div key={item.id} className="flex justify-between text-sm">
                     <span>
-                      {item.name} × {item.quantity}
+                      {item.name} x {item.quantity}
                     </span>
                     <span className="flex gap-1 items-center">
                       <IndianRupee className="w-4 h-4" />
