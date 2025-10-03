@@ -105,7 +105,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {featuredProducts.map((product) => (
-              <Link href={`/products/${product.id}`}>
+              <Link href={`/products/${product.id}`} key={product.id}>
                 <ProductCard key={product.id} product={product} />
               </Link>
             ))}
