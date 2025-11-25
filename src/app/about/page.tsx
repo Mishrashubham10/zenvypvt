@@ -11,7 +11,7 @@ export default function AboutUs() {
           About Zenvypvt
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          We're dedicated to offering premium products at affordable prices.
+          We&apos;re dedicated to offering premium products at affordable prices.
           Since day one, we&apos;ve aimed to deliver unmatched quality and
           outstanding customer support.
         </p>
