@@ -20,7 +20,7 @@ export default function CheckoutPopup({
   description,
 }: CheckoutButtonProps) {
   const router = useRouter();
-  const { dispatch } = useCart()
+  const { dispatch } = useCart();
 
   function handleContinueShoping() {
     setOpen(false);
