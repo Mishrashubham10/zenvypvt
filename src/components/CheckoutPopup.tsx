@@ -4,6 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 import { DialogDescription, DialogTitle } from '@radix-ui/react-dialog';
 import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
+import { useCart } from '@/contexts/CartContext';
 
 interface CheckoutButtonProps {
   open: boolean;
@@ -19,9 +20,11 @@ export default function CheckoutPopup({
   description,
 }: CheckoutButtonProps) {
   const router = useRouter();
+  const { dispatch } = useCart()
 
   function handleContinueShoping() {
     setOpen(false);
+    dispatch({ type: 'CLEAR_CART' });
     router.push('/products');
   }
 

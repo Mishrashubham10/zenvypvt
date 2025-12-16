@@ -36,7 +36,7 @@ export default function CartPage() {
   // CLER CART
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
-    toast("Cart cleared", {
+    toast('Cart cleared', {
       description: 'All items have been removed from your cart.',
     });
   };
@@ -271,7 +271,7 @@ export default function CartPage() {
               </div>
 
               <Button className="w-full" size="lg" onClick={handleCheckout}>
-                Proceed to Checkout
+                Pay Now
               </Button>
               <CheckoutPopup
                 open={open}
